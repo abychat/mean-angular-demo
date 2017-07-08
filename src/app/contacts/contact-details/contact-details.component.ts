@@ -13,6 +13,9 @@ export class ContactDetailsComponent {
   contact: Contact;
 
   @Input()
+  signedRequestJson : string;
+
+  @Input()
   createHandler: Function;
   @Input()
   updateHandler: Function;

@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
+var session = require('express-session');
 var ObjectID = mongodb.ObjectID;
 
 var CONTACTS_COLLECTION = "contacts";
@@ -14,6 +15,8 @@ app.use(express.static(distDir));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
+var usrctxt;
+
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
@@ -112,3 +115,26 @@ app.delete("/api/contacts/:id", function(req, res) {
     }
   });
 });
+
+app.post("/api/authenticate", function(req, res) {
+   var bodyArray = req.body.signed_request.split(".");
+   var consumerSecret = bodyArray[0];
+   var encoded_envelope = bodyArray[1];
+   var check = crypto.createHmac("sha256", process.env.CANVAS_CONSUMER_SECRET).update(encoded_envelope).digest("base64");
+
+    if (check === consumerSecret) {
+
+        var envelope = JSON.parse(new Buffer(encoded_envelope, "base64").toString("ascii"));
+        req.session.salesforce = envelope;
+        console.log("got the session object:");
+        console.log(envelope);
+        res.sendStatus(200);
+    }
+})
+
+app.get("/api/authenticate", function(req, res) {     
+        console.log("Returning user ctxt");
+        console.log(req.session.salesforce);
+        res.sendStatus(200).json(req.session.salesforce);
+    }
+})
