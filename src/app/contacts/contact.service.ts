@@ -6,8 +6,16 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ContactService {
     private contactsUrl = '/api/contacts';
+    private authUrl = '/api/authenticate';
 
     constructor (private http: Http) {}
+
+    getUserInfo(): Promise<{}> {
+      return this.http.get(this.authUrl)
+                 .toPromise()
+                 .then(response => response.json() as {})
+                 .catch(this.handleError);
+    }
 
     // get("/api/contacts")
     getContacts(): Promise<Contact[]> {

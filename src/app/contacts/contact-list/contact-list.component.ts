@@ -14,6 +14,7 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[]
   selectedContact: Contact
+  userInfo: {}
 
   constructor(private contactService: ContactService) { }
 
@@ -31,7 +32,14 @@ export class ContactListComponent implements OnInit {
           return contact;
         });
       });
+      this.contactService
+      .getContacts()
+      .then((userInfo: {}) => {
+        this.userInfo = userInfo;
+      });
   }
+
+
 
   private getIndexOfContact = (contactId: String) => {
     return this.contacts.findIndex((contact) => {
