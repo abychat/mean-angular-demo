@@ -36,7 +36,7 @@ export class ContactListComponent implements OnInit {
       .getUserInfo()
       .then((userInfo: string) => {
         console.log(userInfo);
-        this.userInfo = JSON.parse(userInfo);
+        this.userInfo = userInfo;
       });
   }
 
