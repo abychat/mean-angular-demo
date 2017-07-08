@@ -133,7 +133,7 @@ app.post("/api/authenticate", function(req, res) {
         req.session.salesforce = envelope;
         console.log("got the session object:");
         console.log(envelope);
-        res.sendStatus(200);
+        res.status(200).sendFile('index.html');
     }
 });
 
