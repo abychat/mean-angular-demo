@@ -130,11 +130,11 @@ app.post("/api/authenticate", function(req, res) {
         console.log(envelope);
         res.sendStatus(200);
     }
-})
+});
 
 app.get("/api/authenticate", function(req, res) {     
         console.log("Returning user ctxt");
         console.log(req.session.salesforce);
         res.sendStatus(200).json(req.session.salesforce);
     }
-})
+});
