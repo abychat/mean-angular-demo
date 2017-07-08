@@ -11,6 +11,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
+  secret: 'sfcanvasapp301984567',
   salesforce: {}
 }));
 // Create link to Angular build directory
