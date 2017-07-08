@@ -3,18 +3,18 @@
     <h2>Hello {{userInfo.context.user.fullName}}</h2>
   </div>
   <div class="col-sm-3">
-    <img src={{userInfo.context.user.profilePhotoUrl}} align="right" class="img-circle" alt="Profile Photo" width="200" height="150"> 
+    <img src={{userInfo.context.user.profilePhotoUrl}} align="right" class="img-circle" alt="Profile Photo" width="100" height="100"> 
   </div>
 </div>
 <div class="row">
   <div class="col-sm-4">
-    <p>from {{userInfo.context.organization.name}} | </p>
+    <p >{{userInfo.context.organization.name}} </p>
   </div>
   <div class="col-sm-4">
-    <p>from {{userInfo.context.user.email}} | </p>
+    <p>{{userInfo.context.user.email}}</p>
   </div>
   <div class="col-sm-4">
-    <p>from {{userInfo.context.user.userName}}</p>
+    <p>{{userInfo.context.user.userName}}</p>
   </div>
 </div>
 
