@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
-var session = require('express-session');
+var session = require("express-session");
 var crypto = require("crypto");
 var ObjectID = mongodb.ObjectID;
 
@@ -10,7 +10,9 @@ var CONTACTS_COLLECTION = "contacts";
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(session({
+  salesforce: {}
+}));
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
@@ -119,8 +121,6 @@ app.delete("/api/contacts/:id", function(req, res) {
 });
 
 app.post("/api/authenticate", function(req, res) {
-   console.log(req.body);
-   console.log(process.env.CANVAS_CONSUMER_SECRET);
    var bodyArray = req.body.signed_request.split(".");
    var consumerSecret = bodyArray[0];
    var encoded_envelope = bodyArray[1];
