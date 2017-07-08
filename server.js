@@ -140,5 +140,5 @@ app.post("/api/authenticate", function(req, res) {
 app.get("/api/authenticate", function(req, res) {     
         console.log("Returning user ctxt");
         console.log(req.session.salesforce);
-        res.sendStatus(200).json(req.session.salesforce);
+        res.sendStatus(200).json(JSON.stringify(req.session.salesforce));
 });
