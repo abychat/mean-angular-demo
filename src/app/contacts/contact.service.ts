@@ -10,7 +10,7 @@ export class ContactService {
 
     constructor (private http: Http) {}
 
-    getUserInfo(): Promise<{}> {
+    getUserInfo(): Promise {
       return this.http.get(this.authUrl)
                  .toPromise()
                  .then(response => response.json())
