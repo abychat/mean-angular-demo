@@ -1,6 +1,14 @@
 <div class="row">
-  <div class="col-md-5">
-   {{userInfo}}
+  <div class="col-md-2">
+    <h2>Hello {{userInfo.context.user.fullName}} from {{userInfo.context.organization.name}}</h2>
+  </div>
+  <div class="col-md-2">
+    <img src={{userInfo.context.user.profilePhotoUrl}} align="right" class="img-circle" alt="Profile Photo" width="200" height="150"> 
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
     <h2>Contacts</h2>
     <ul class="list-group">
       <li class="list-group-item"
@@ -12,7 +20,7 @@
     </ul>
     <button class="btn btn-warning" (click)="createNewContact()">New</button>
   </div>
-  <div class="col-md-5 col-md-offset-2">
+  <div class="col-md-3 col-md-offset-2">
     <contact-details
       [contact]="selectedContact"
       [createHandler]="addContact"
