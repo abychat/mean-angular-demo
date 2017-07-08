@@ -33,8 +33,8 @@ export class ContactListComponent implements OnInit {
         });
       });
       this.contactService
-      .getContacts()
-      .then((userInfo: {}) => {
+      .getUserInfo()
+      .then((userInfo: string) => {
         this.userInfo = JSON.parse(userInfo);
       });
   }
