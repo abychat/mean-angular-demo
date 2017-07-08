@@ -10,10 +10,10 @@ export class ContactService {
 
     constructor (private http: Http) {}
 
-    getUserInfo(): Promise<T> {
+    getUserInfo(): Promise<String> {
       return this.http.get(this.authUrl)
                  .toPromise()
-                 .then(response => response.json() as T)
+                 .then(response => response.json() as String)
                  .catch(this.handleError);
     }
 
