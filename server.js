@@ -119,7 +119,8 @@ app.delete("/api/contacts/:id", function(req, res) {
 });
 
 app.post("/api/authenticate", function(req, res) {
-   console.log(req);
+   console.log(req.body);
+   console.log(process.env.CANVAS_CONSUMER_SECRET);
    var bodyArray = req.body.signed_request.split(".");
    var consumerSecret = bodyArray[0];
    var encoded_envelope = bodyArray[1];
