@@ -13,7 +13,7 @@ export class ContactService {
     getUserInfo(): Promise<{}> {
       return this.http.get(this.authUrl)
                  .toPromise()
-                 .then(response => response.json() as {})
+                 .then(response => response.json())
                  .catch(this.handleError);
     }
 
