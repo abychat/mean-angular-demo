@@ -29,7 +29,8 @@
     "mongodb": "^2.2.26",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4",
-    "express-session":"~1.15.3"
+    "express-session":"~1.15.3",
+    "crypto":"~0.0.3"
   },
   "devDependencies": {
     "@types/jasmine": "2.5.38",
