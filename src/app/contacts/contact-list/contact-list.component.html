@@ -1,9 +1,20 @@
 <div class="row">
-  <div class="col-md-2">
-    <h2>Hello {{userInfo.context.user.fullName}} from {{userInfo.context.organization.name}}</h2>
+  <div class="col-sm-9">
+    <h2>Hello {{userInfo.context.user.fullName}}</h2>
   </div>
-  <div class="col-md-2">
+  <div class="col-sm-3">
     <img src={{userInfo.context.user.profilePhotoUrl}} align="right" class="img-circle" alt="Profile Photo" width="200" height="150"> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <p>from {{userInfo.context.organization.name}} | </p>
+  </div>
+  <div class="col-sm-4">
+    <p>from {{userInfo.context.user.email}} | </p>
+  </div>
+  <div class="col-sm-4">
+    <p>from {{userInfo.context.user.userName}}</p>
   </div>
 </div>
 
