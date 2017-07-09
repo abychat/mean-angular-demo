@@ -149,7 +149,7 @@ app.get("/api/authenticate", function(req, res) {
                 userName: 'Salesforce User Name'
               },
               organization : {
-                name : 'Company'
+                name : 'Your Company'
               }
             }
           };
