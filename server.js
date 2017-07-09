@@ -140,7 +140,7 @@ app.post("/api/authenticate", function(req, res) {
 app.get("/api/authenticate", function(req, res) {     
         console.log("Returning user ctxt");
         console.log(req.session.salesforce);
-        if(typeof req.session.salesforce == undefines || req.session.salesforce == null || Object.keys(req.session.salesforce).length === 0){
+        if(typeof req.session.salesforce == undefined || req.session.salesforce == null || Object.keys(req.session.salesforce).length === 0){
           req.session.salesforce = {
             context : {
               user : {
