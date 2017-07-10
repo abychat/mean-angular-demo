@@ -81,15 +81,13 @@ app.post("/api/contacts", function(req, res) {
     }
   });
   
-  //if(typeof req.session.salesforce != undefined || req.session.salesforce != null || Object.keys(req.session.salesforce).length > 0) {
+  if(typeof req.session.salesforce != undefined && req.session.salesforce != null && Object.keys(req.session.salesforce).length > 0) {
       var fullName = newContact.name.split(" ");
       var sr = req.session.salesforce;
-      console.log(sr);
       var conn = new jsforce.Connection({
         instanceUrl : sr.client.instanceUrl,
         accessToken : sr.client.oauthToken
       });
-      console.log(conn);   
       conn.sobject("Contact").create({ FirstName: fullName[0], 
                    LastName : fullName[1],
                    Email: newContact.email,
@@ -100,7 +98,7 @@ app.post("/api/contacts", function(req, res) {
                       console.log("Created record id : " + ret.id);
       
                 });
-  //      }
+        }
 });
 
 /*  "/api/contacts/:id"
