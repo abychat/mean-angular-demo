@@ -88,16 +88,7 @@ app.post("/api/contacts", function(req, res) {
         instanceUrl : sr.client.instanceUrl,
         accessToken : sr.client.oauthToken
       });
-     
-      
-
-      var body = { FirstName: fullName[0], 
-                   LastName : fullName[1],
-                   Email: newContact.email,
-                   Phone: newContact.phone.work,
-                   MobilePhone: newContact.phone.mobile
-                 };
-
+         
       conn.sobject("Contact").upsert({ FirstName: fullName[0], 
                    LastName : fullName[1],
                    Email: newContact.email,
@@ -109,7 +100,6 @@ app.post("/api/contacts", function(req, res) {
       
                 });
         }
-   }
 });
 
 /*  "/api/contacts/:id"
