@@ -81,7 +81,7 @@ app.post("/api/contacts", function(req, res) {
     }
   });
   
-  if(typeof req.session.salesforce.client != undefined && req.session.salesforce.client != null && Object.keys(req.session.salesforce.client).length > 0) {
+  if(req.session.salesforce.client !== 'undefined') {
       var fullName = newContact.name.split(" ");
       var sr = req.session.salesforce;
       var conn = new jsforce.Connection({
