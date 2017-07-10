@@ -17,6 +17,7 @@ app.use(session({
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
+var Sfdc = require(distDir+'/assets/canvas.js');
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -79,6 +80,28 @@ app.post("/api/contacts", function(req, res) {
       res.status(201).json(doc.ops[0]);
     }
   });
+  var fullName = newContact.name.split(" ");
+  var sr = req.session.salesforce;
+  Sfdc.canvas.oauth.token(sr.oauthToken);
+  var url = sr.context.links.sobjectUrl + "/Contact";
+                var body = {FirstName: fullName[0],
+                LastName: fullName[1],
+                Phone: newContact.phone.work,
+                MobilePhone: newContact.phone.mobile,
+                Email: newContact.email 
+                };
+                Sfdc.canvas.client.ajax(url,
+                        {client: sr.client,
+                            method: 'POST',
+                            contentType: "application/json",
+                            data: JSON.stringify(body),
+                            success: function (data) {
+                                if (201 === data.status) {
+                                    console.log("Success");
+                                }
+                            }
+                        });
+
 });
 
 /*  "/api/contacts/:id"
