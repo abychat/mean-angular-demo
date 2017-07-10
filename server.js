@@ -84,18 +84,19 @@ app.post("/api/contacts", function(req, res) {
   //if(typeof req.session.salesforce != undefined || req.session.salesforce != null || Object.keys(req.session.salesforce).length > 0) {
       var fullName = newContact.name.split(" ");
       var sr = req.session.salesforce;
+      console.log(sr);
       var conn = new jsforce.Connection({
         instanceUrl : sr.client.instanceUrl,
         accessToken : sr.client.oauthToken
       });
-         
-      conn.sobject("Contact").upsert({ FirstName: fullName[0], 
+      console.log(conn);   
+      conn.sobject("Contact").create({ FirstName: fullName[0], 
                    LastName : fullName[1],
                    Email: newContact.email,
                    Phone: newContact.phone.work,
                    MobilePhone: newContact.phone.mobile
                  }, function(err, ret) {
-                      if (err || !ret.success) { return console.error(err, ret); }
+                      if (err || !ret.success) { return console.log(err, ret); }
                       console.log("Created record id : " + ret.id);
       
                 });
