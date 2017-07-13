@@ -166,7 +166,7 @@ app.get("/api/authenticate", function(req, res) {
                 user : {
                   fullName : 'Guest User',
                   email : 'sample@xyz.com',
-                  profilePhotoUrl : '/slds/assets/images/avatar3.jpg',
+                  profilePhotoUrl : '/assets/images/avatar3.jpg',
                   userName : 'Salesforce User Name'
                   },
               organization : {
