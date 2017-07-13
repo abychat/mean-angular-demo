@@ -168,8 +168,7 @@ app.get("/api/authenticate", function(req, res) {
                   email : 'sample@xyz.com',
                   profilePhotoUrl : '/slds/assets/images/avatar3.jpg',
                   userName : 'Salesforce User Name'
-                }
-              },
+                  },
               organization : {
                 name : 'Your Company'
               }
