@@ -165,9 +165,9 @@ app.get("/api/authenticate", function(req, res) {
             context : {
               user : {
                 fullName : 'Guest User',
-                email: 'sample@xyz.com',
-                userName: 'Salesforce User Name',
-                profilePhotoUrl: '/slds/assets/images/avatar3.jpg'
+                email : 'sample@xyz.com',
+                userName : 'Salesforce User Name',
+                profilePhotoUrl : '/slds/assets/images/avatar3.jpg'
               },
               organization : {
                 name : 'Your Company'
