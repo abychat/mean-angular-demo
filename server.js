@@ -163,11 +163,12 @@ app.get("/api/authenticate", function(req, res) {
         if(typeof req.session.salesforce == undefined || req.session.salesforce == null || Object.keys(req.session.salesforce).length === 0){
           req.session.salesforce = {
             context : {
-              user : {
-                fullName : 'Guest User',
-                email : 'sample@xyz.com',
-                userName : 'Salesforce User Name',
-                profilePhotoUrl : '/slds/assets/images/avatar3.jpg'
+                user : {
+                  fullName : 'Guest User',
+                  email : 'sample@xyz.com',
+                  profilePhotoUrl : '/slds/assets/images/avatar3.jpg',
+                  userName : 'Salesforce User Name'
+                }
               },
               organization : {
                 name : 'Your Company'
