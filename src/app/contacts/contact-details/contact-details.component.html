@@ -1,29 +1,37 @@
-<div *ngIf="contact" class="row">
-  <div class="col-md-12">
+<div class="slds-grid">
+  <div *ngIf="contact" class="slds-medium-size_1-of-1">
     <h2 *ngIf="contact._id">Contact Details</h2>
     <h2 *ngIf="!contact._id">New Contact</h2>
   </div>
-</div>
-<div *ngIf="contact" class="row">
-  <form class="col-md-12">
-    <div class="form-group">
-      <label for="contact-name">Name</label>
-      <input class="form-control" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
+  <div *ngIf="contact" class="slds-medium-size_2-of-2">
+    <div class="slds-form slds-form_stacked">
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="contact-name">Name</label>
+        <div class="slds-form-element__control">
+          <input type="text" class="slds-input" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
+        </div>
+      </div>
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="contact-email">Email</label>
+        <div class="slds-form-element__control">
+          <input type="email" class="slds-input" name="contact-email" [(ngModel)]="contact.email" placeholder="support@salesforce.com"/>
+        </div>
+      </div>
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="contact-phone-mobile">Mobile</label>
+        <div class="slds-form-element__control">
+          <input type="tel" class="slds-input" name="contact-phone-mobile" [(ngModel)]="contact.phone.mobile" placeholder="1234567890"/>
+        </div>
+      </div>
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="contact-phone-work">Work</label>
+        <div class="slds-form-element__control">
+          <input type="tel" class="slds-input" name="contact-phone-work" [(ngModel)]="contact.phone.work" placeholder="1234567890"/>
+        </div>
+      </div>
+      <button class="slds-button slds-button_brand" *ngIf="!contact._id" (click)="createContact(contact)">Create</button>
+      <button class="slds-button slds-button_neutral" *ngIf="contact._id" (click)="updateContact(contact)">Update</button>
+      <button class="slds-button slds-button_destructive" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
     </div>
-    <div class="form-group">
-      <label for="contact-email">Email</label>
-      <input class="form-control" name="contact-email" [(ngModel)]="contact.email" placeholder="support@mlab.com"/>
-    </div>
-    <div class="form-group">
-      <label for="contact-phone-mobile">Mobile</label>
-      <input class="form-control" name="contact-phone-mobile" [(ngModel)]="contact.phone.mobile" placeholder="1234567890"/>
-    </div>
-    <div class="form-group">
-      <label for="contact-phone-work">Work</label>
-      <input class="form-control" name="contact-phone-work" [(ngModel)]="contact.phone.work" placeholder="0123456789"/>
-    </div>
-    <button class="btn btn-primary" *ngIf="!contact._id" (click)="createContact(contact)">Create</button>
-    <button class="btn btn-info" *ngIf="contact._id" (click)="updateContact(contact)">Update</button>
-    <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
-  </form>
-</div>
+  </div>
+</div>  

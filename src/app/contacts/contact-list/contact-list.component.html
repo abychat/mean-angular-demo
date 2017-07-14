@@ -1,54 +1,53 @@
 
 <div class="slds-m-around_small">
-<div class= "slds-box slds-box_xx-small">
-
-  <div class="slds-page-header page-header">
-        <div class="slds-media">
-            <div class="slds-media__figure">
-              <span class="slds-avatar slds-avatar_large">
-                <img src={{userInfo.context.user.profilePhotoUrl}} class="slds-avatar_circle" alt="Profile Photo"> 
-              </span>
-          </div>
-          <div class="slds-media__body">
-            <article class="slds-tile">
-              <h3 class="slds-truncate" title="Profile"><a href="javascript:void(0);">Profile</a></h3>
-              <div class="slds-tile__detail slds-text-title_caps">
-                <dl class="slds-list_horizontal slds-wrap">
-                  <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Company">Name</dt>
-                  <dd class="slds-item_detail slds-truncate" title="Description for first label">{{userInfo.context.user.fullName}}</dd>
-                  <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Company">Company</dt>
-                  <dd class="slds-item_detail slds-truncate" title="Description for first label">{{userInfo.context.organization.name}}</dd>
-                  <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Email</dt>
-                  <dd class="slds-item_detail slds-truncate" title="Description for second label">{{userInfo.context.user.email}}</dd>
-                  <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">User Name</dt>
-                  <dd class="slds-item_detail slds-truncate" title="Description for second label">{{userInfo.context.user.userName}}</dd>
-                </dl>
-              </div>
-            </article>
-          </div>
+  <div class= "slds-box slds-box_xx-small">
+    <div class="slds-page-header page-header">
+      <div class="slds-media">
+          <div class="slds-media__figure">
+            <span class="slds-avatar slds-avatar_large">
+              <img src={{userInfo.context.user.profilePhotoUrl}} class="slds-avatar_circle" alt="Profile Photo"> 
+            </span>
         </div>
-</div>
-<div class="row">
-  <div class="col-md-3">
-    <h2>Contacts</h2>
-    <ul class="list-group">
-      <li class="list-group-item"
-        *ngFor="let contact of contacts"
-        (click)="selectContact(contact)"
-        [class.active]="contact === selectedContact">
-        {{contact.name}}
-      </li>
-    </ul>
-    <button class="btn btn-warning" (click)="createNewContact()">New</button>
+        <div class="slds-media__body">
+          <article class="slds-tile">
+            <h3 class="slds-truncate" title="Profile"><a href="javascript:void(0);">Profile</a></h3>
+            <div class="slds-tile__detail slds-text-title_caps">
+              <dl class="slds-list_horizontal slds-wrap">
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Company">Name</dt>
+                <dd class="slds-item_detail slds-truncate" title="Description for first label">{{userInfo.context.user.fullName}}</dd>
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Company">Company</dt>
+                <dd class="slds-item_detail slds-truncate" title="Description for first label">{{userInfo.context.organization.name}}</dd>
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Email</dt>
+                <dd class="slds-item_detail slds-truncate" title="Description for second label">{{userInfo.context.user.email}}</dd>
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">User Name</dt>
+                <dd class="slds-item_detail slds-truncate" title="Description for second label">{{userInfo.context.user.userName}}</dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="slds-grid">
+      <div class="slds-medium-size_1-of-2">
+        <h2>Contacts</h2>
+        <ul class="slds-has-dividers_top-space slds-has-dividers_bottom-space">
+          <li class="slds-item"
+            *ngFor="let contact of contacts"
+            (click)="selectContact(contact)"
+            [class.active]="contact === selectedContact">
+            {{contact.name}}
+          </li>
+        </ul>
+        <button class="slds-button slds-button_brand" (click)="createNewContact()">New</button>
+      </div>
+      <div class="slds-medium-size_1-of-2">
+        <contact-details
+          [contact]="selectedContact"
+          [createHandler]="addContact"
+          [updateHandler]="updateContact"
+          [deleteHandler]="deleteContact">
+        </contact-details>
+      </div>
   </div>
-  <div class="col-md-3 col-md-offset-2">
-    <contact-details
-      [contact]="selectedContact"
-      [createHandler]="addContact"
-      [updateHandler]="updateContact"
-      [deleteHandler]="deleteContact">
-    </contact-details>
-  </div>
-</div>
 </div>
 </div>
