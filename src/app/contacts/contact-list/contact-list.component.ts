@@ -38,10 +38,6 @@ export class ContactListComponent implements OnInit {
         console.log(userInfo);
         this.userInfo = userInfo;
       });
-      Sfdc.canvas(function() {
-        Sfdc.canvas.client.autogrow(userInfo.client);
-      });
-
   }
 
 
