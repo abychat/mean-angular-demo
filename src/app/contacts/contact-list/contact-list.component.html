@@ -1,13 +1,12 @@
 
 <div class="slds-m-around_small">
-  <div class= "slds-box slds-box_xx-small">
     <div class="slds-page-header page-header">
       <div class="slds-media">
           <div class="slds-media__figure">
             <span class="slds-avatar slds-avatar_large">
               <img src={{userInfo.context.user.profilePhotoUrl}} class="slds-avatar_circle" alt="Profile Photo"> 
             </span>
-        </div>
+          </div>
         <div class="slds-media__body">
           <article class="slds-tile">
             <h3 class="slds-truncate" title="Profile"><a href="javascript:void(0);">Profile</a></h3>
@@ -27,29 +26,28 @@
         </div>
       </div>
     </div>
-    <div class="slds-grid">
-      <div class="slds-medium-size_1-of-2">
-        <div class= "slds-box slds-box_xxx-small">
-         <div class="slds-text-heading_medium">Contacts</div>
-          <ul class="slds-has-dividers_top-space slds-has-dividers_bottom-space">
-            <li class="slds-item"
-              *ngFor="let contact of contacts"
-              (click)="selectContact(contact)"
-              [class.active]="contact === selectedContact">
-              {{contact.name}}
-            </li>
-          </ul>
-          <button class="slds-button slds-button_brand" (click)="createNewContact()">New</button>
-        </div>
-        <div class="slds-medium-size_1-of-2">
-          <contact-details
-            [contact]="selectedContact"
-            [createHandler]="addContact"
-            [updateHandler]="updateContact"
-            [deleteHandler]="deleteContact">
-          </contact-details>
-        </div>
-      </div>
-  </div>
-</div>
+  <div class="c-container slds-border_bottom slds-border_left slds-border_right">
+    <lightning:layout multipleRows="true">
+      <lightning:layoutItem flexibility="auto" size="6">
+        <div class="slds-text-heading_medium slds-m-around_small">Contacts</div>
+        <ul class="slds-has-dividers_top-space">
+          <li class="slds-item"
+            *ngFor="let contact of contacts"
+            (click)="selectContact(contact)"
+            [class.active]="contact === selectedContact">
+            {{contact.name}}
+          </li>
+        </ul>
+        <button class="slds-button slds-button_brand slds-m-around_small" (click)="createNewContact()">New</button>
+      </lightning:layoutItem>
+      <lightning:layoutItem flexibility="auto" size="6">
+        <contact-details
+          [contact]="selectedContact"
+          [createHandler]="addContact"
+          [updateHandler]="updateContact"
+          [deleteHandler]="deleteContact">
+        </contact-details>
+      </lightning:layoutItem>
+    </lightning:layout>
+   </div>
 </div>
