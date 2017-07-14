@@ -29,9 +29,9 @@
     
     <div class="slds-grid">
       <div class="slds-medium-size_1-of-2">
-       <div class="c-container slds-border_bottom slds-border_left slds-border_right">
-         <div class="slds-text-heading_medium">Contacts</div>
-          <ul class="slds-has-dividers_top-space slds-has-dividers_bottom-space">
+       <div class="slds-m-top_small slds-border_right">
+         <div class="slds-text-heading_medium slds-m-top_small slds-m-bottom_small">Contacts</div>
+          <ul class="slds-has-dividers_top-space slds-m-right_small">
             <li class="slds-item"
               *ngFor="let contact of contacts"
               (click)="selectContact(contact)"
@@ -39,18 +39,17 @@
               {{contact.name}}
             </li>
           </ul>
-          <button class="slds-button slds-button_brand" (click)="createNewContact()">New</button>
+          <button class="slds-button slds-button_brand slds-m-top_small" (click)="createNewContact()">New</button>
         </div>
         </div>
         <div class="slds-medium-size_1-of-2">
-        <div class="c-container slds-border_bottom slds-border_left slds-border_right">
           <contact-details
             [contact]="selectedContact"
             [createHandler]="addContact"
             [updateHandler]="updateContact"
             [deleteHandler]="deleteContact">
           </contact-details>
-          </div>
+          
         </div>
       </div>
   </div>
