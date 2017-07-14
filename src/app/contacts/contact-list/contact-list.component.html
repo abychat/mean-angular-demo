@@ -1,9 +1,9 @@
 
+<div class="slds-m-around_small">
 <div class= "slds-box">
-<div class = "slds-box slds-theme_shade">
-  <div class="slds-grid">
-        <div class="slds-medium-size_3-of-3">
-          <div class="slds-media">
+
+  <div class="slds-page-header page-header">
+        <div class="slds-media">
             <div class="slds-media__figure">
               <span class="slds-avatar slds-avatar_large">
                 <img src={{userInfo.context.user.profilePhotoUrl}} class="slds-avatar_circle" alt="Profile Photo"> 
@@ -24,11 +24,9 @@
                   <dd class="slds-item_detail slds-truncate" title="Description for second label">{{userInfo.context.user.userName}}</dd>
                 </dl>
               </div>
-        </article>
-          </div>
+            </article>
           </div>
         </div>
-  </div>
 </div>
 <div class="row">
   <div class="col-md-3">
@@ -51,5 +49,6 @@
       [deleteHandler]="deleteContact">
     </contact-details>
   </div>
+</div>
 </div>
 </div>
